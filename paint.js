@@ -1,13 +1,9 @@
-var canvas = document.querySelector('.pixel-canvas')
-
-var pixel = document.querySelectorAll('.pixel-paint')
-var colors = document.querySelectorAll('.color')
-var color = ''
-
-paint();
 size(3);
 
 function size(btnId){
+
+    let canvas = document.querySelector('.pixel-canvas')
+
     let x = btnId;
     let w = 11 * btnId -1;
     let totalPixels = btnId * btnId;
@@ -23,16 +19,21 @@ function size(btnId){
 
 function paint(){
 
+    let pixel = document.querySelectorAll('.pixel-paint')
+    let colorPicker = document.querySelectorAll('.color')
+    let color = ''
+
     for(var i = 0; i<pixel.length; i++){
         pixel[i].addEventListener('click', pixelPaint)
     }
 
-    for(var c = 0; c<colors.length; c++){
-        colors[c].addEventListener('click', paintBrush)
+    for(var c = 0; c<colorPicker.length; c++){
+        colorPicker[c].addEventListener('click', paintBrush)
+        colorPicker[c].addEventListener('input', paintBrush)
     }
 
-    function paintBrush(){
-        color = window.getComputedStyle(this).backgroundColor;
+    function paintBrush(colorPicked){
+        color = colorPicked.target.value
     }
 
     function pixelPaint(){
