@@ -4,4 +4,4 @@
 
 [Github Pages -> Pixel Paint](https://eduardanunes.github.io/Pixel-Paint/)
 
-<div align="center"><img src="https://media.discordapp.net/attachments/1024407769467596890/1072631758966763570/image.png?width=1358&height=683"></div>
+<div align="center"><img src="https://media.discordapp.net/attachments/1024407769467596890/1072693802520825866/image.png?width=1214&height=683"></div>
