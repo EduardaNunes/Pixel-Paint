@@ -1,4 +1,4 @@
-size(3);
+size(3)
 
 function size(btnId){
 
