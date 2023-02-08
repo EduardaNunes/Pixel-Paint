@@ -9,33 +9,40 @@
     border: none;
     font-family: 'Joystix Monospace';
     text-align: center;
-    color: gainsboro;
+    color: var(--text-color);
+}
+
+:root{
+    --bg-color:#1b1b1b;
+    --text-color:#f4f1de;
 }
 
 body{
-    background-color: rgb(27, 27, 27);
+    background-color: var(--bg-color);
 }
 
 header{
     display: flex;
     flex-flow: column;
-    align-items: center;
-    gap: 1em;
     justify-content: center;
+    align-items: center;
+    padding: 2em 1em;
+    gap: 1em;
     width: 100%;
-    height: 30vh;
+    box-sizing: border-box;
+    max-height: 40vh;
 }
 
 .paint-colors{
     display: flex;
     justify-content: center;
-    gap:4vh;
+    align-items: center;
+    gap:1vw;
     width: 80vw;
     height: 10vh;
 }
 
 .color{
-    appearance: none;
     background-color: transparent;
     width: 10vh;
     height: 10vh;
@@ -46,42 +53,81 @@ header{
     filter: brightness(0.8)
 }
 
-button{
-    padding: 1em 1.5em;
-    border-radius: 5px;
-    background-color: black;
-    border: solid 1px rgb(165, 165, 165) ;
+.canvas-size{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:1vw;
 }
 
-button:hover{
+.btn-size{
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: black;
+    box-sizing: border-box;
+    width: 10vh ;
+    height: 5vh;
+}
+
+.btn-size:hover{
     cursor: pointer;
-    filter: brightness(2);
+    filter: brightness(1.4);
 }
 
 main{
-    margin-top:7vh;
     display: flex;
-    place-content: center;
-    place-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 50vh;
+    max-height: 60vh;
 }
 
 .pixel-canvas{
+    margin:1em;
     display: grid;
-    gap: 1vh;
+    max-height: 60vh;
+    max-width: 60vh;
 }
 
 .pixel-paint{
     background-color: #f4f1de;
-    min-width:1vw;
-    min-height:1vw;
-    max-width: 10vh;
-    max-height: 10vh;
-    border-radius: 5px;
+    border: solid .1em var(--bg-color);
 }
 
 .pixel-paint:hover{
     cursor: pointer;
     filter: brightness(0.8)
+}
+
+ @media (max-width:640px){
+    .pixel-canvas{
+        max-height: 90vw;
+        max-width: 90vw;
+    }
+} 
+
+@media (max-width:440px){
+    .color{
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .btn-size{
+        width: 20vw;
+        height: 12vw;
+    }
+}
+
+@media (min-width:1500px){
+    h1{
+        font-size: 2rem;
+    }
+    
+    p{
+        font-size: 1.5rem;
+    }
+
+    .btn-size{
+        font-size:1.5rem;
+    }
+
 }
