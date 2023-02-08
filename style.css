@@ -31,47 +31,43 @@
     align-items: center;
 }
 
-.grid-column-4{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    place-items: center;
-    box-sizing: border-box;
-    padding: 0 1em;
-    gap: 0 1em;
-}
-
 body{
     background-color: var(--bg-color);
 }
 
 header{
     width: 100%;
-    height: 40vh;
-    padding: 1em 0;
+    max-height: 40vh;
+    padding: 1vh 0;
+    gap:1vh;
     box-sizing: border-box;
-}
-
-header section{
-    height: 12vh;
 }
 
 .header-text{
     width: 100%;
-    gap:0.6em;
+    max-height: 10vh;
+    gap:1vh;
     padding: 0 2em;
     box-sizing: border-box;
 }
 
 .header-text h1{
-    font-size: 1.5em;
+    font-size: 2.2em;
 }
 
 .header-text p{
-    font-size: .8em;
+    font-size: 1.2em;
 }
 
-.paint-colors{
-    align-items: end;
+.paint-options{
+    max-height: 28vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2fr 2fr 1fr);
+    place-items: center;
+    box-sizing: border-box;
+    padding: 0 1em;
+    gap: 5px 5px;
 }
 
 .color, .tools{
@@ -92,17 +88,13 @@ header section{
 }
 
 .tools img{
-    width: 60%;
-    height: 60%;
-    
-}
-
-.canvas-size{
-    height: 4vh;
+    width: 50%;
+    height: 50%;
+   
 }
 
 .btn-size{
-    font-size: 0.8em;
+    font-size: 1em;
     background-color: black;
     width: 10vh;
     height: 4vh;
@@ -127,7 +119,7 @@ main{
     display: grid;
     max-height: 58vh;
     max-width: 58vh;
-    padding: 1em;
+    padding: 1vh;
     box-sizing: border-box;
 }
 
@@ -142,11 +134,13 @@ main{
 }
 
 footer{
-    height: 2vh;
+    height: 4vh;
+    padding: 0 0 1vh 0 ;
+    box-sizing: border-box;
 }
 
 footer p{
-    font-size: 0.6em;
+    font-size: 0.7em;
 
 }
 
@@ -157,29 +151,60 @@ footer p{
     }
 } 
 
-/* @media (max-width:440px){
-    .color{
-        width: 20vw;
-        height: 20vw;
-    }
-
-    .btn-size{
-        width: 20vw;
-        height: 12vw;
-    }
-}
-
-@media (min-width:1500px){
-    h1{
-        font-size: 2rem;
+@media (max-width:540px){
+    .header-text h1{
+        font-size: 1.3em;
     }
     
-    p{
-        font-size: 1.5rem;
+    .header-text p{
+        font-size: 0.7rem;
+    }
+} 
+
+@media (max-width:320px){
+    .header-text h1{
+        font-size: 1.2em;
+    }
+    
+    .header-text p{
+        font-size: .7rem;
+    }
+} 
+
+@media (max-height:540px){
+
+    .btn-size{
+        font-size: 0.5em;
+    }
+
+    .header-text h1{
+        font-size: 1em;
+    }
+    
+    .header-text p{
+        font-size: .5em;
+    }
+
+    footer p{
+        font-size: .45em;
+    }
+} 
+
+@media (min-width:1940px){
+    .header-text h1{
+        font-size: 3em;
+    }
+    
+    .header-text p{
+        font-size: 1.5em;
+    }
+
+    footer p{
+        font-size: 1em;
     }
 
     .btn-size{
-        font-size:1.5rem;
+        font-size:1.2em;
     }
 
-}  */
+}  
