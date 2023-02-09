@@ -20,28 +20,13 @@ function size(btnId){
     paint()
 }
 
-function paint(remove){
-
-    if (remove == true){
-
-        console.log('Rodou o Paint() no if')
-
-        for(var i = 0; i<pixel.length; i++){
-            pixel[i].removeEventListener('click',pixelPaint)
-            console.log('Pixel Paint Removido')
-        }
-    }
-
-    else{
-
-        console.log('Rodou o Paint () no else')
+function paint(){
 
         let pixel = document.querySelectorAll('.pixel-paint')
         let colorPicker = document.querySelectorAll('.color')
 
         for(var i = 0; i<pixel.length; i++){
             pixel[i].addEventListener('click',pixelPaint)
-            console.log('PixelPaint EventListener')
         }
 
         for(var c = 0; c<colorPicker.length; c++){
@@ -54,41 +39,11 @@ function paint(remove){
         }
 
         function pixelPaint(){
-            console.log('Pixel Paint Pintou')
             this.style.background = color;
-        }
-    }
+        }    
 }
 
 function eraser(){
-    console.log('borracha')
     color = "#f4f1de"
     paint()
-}
-
-function dropper(){
-    console.log('Clicou no Dropper')
-
-    remove = true;
-
-    paint(remove)
-
-    for(var i = 0; i<pixel.length; i++){
-        pixel[i].addEventListener('click', getColor)
-        console.log("Dropper EventListener ")
-    }  
-
-    function getColor(){
-
-        console.log('Rodou getColor()')
-
-        for(var i = 0; i<pixel.length; i++){
-            pixel[i].removeEventListener('click', getColor)
-            console.log("Dropper Remove EventListener")
-        } 
-        
-        color = window.getComputedStyle(this).backgroundColor;
-        console.log("Dropper Pegou:  " + color)
-    }
-        
 }
