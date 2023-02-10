@@ -1,22 +1,23 @@
+document.body.onload = size(3);
+
 let color = ''
 let eraserColor = "#f4f1de"
 let erase = false
 let draw = true
-size(3)
 
 function size(btnId){
 
     let canvas = document.querySelector('.pixel-canvas')
 
-    let x = btnId;
-    let w = 11 * btnId -1;
+    let columnRowNumb = btnId;
+    let canvasSize = 11 * btnId -1;
     let totalPixels = btnId * btnId;
 
      canvas.innerHTML=''
     for (var i=0; i<totalPixels; i++){
         canvas.innerHTML+='<div class="pixel-paint"></div>'
     }
-    canvas.style.cssText+='width:'+w+'vh; height:'+w+'vh; grid-template-columns:repeat('+x+',1fr);grid-template-rows:repeat('+x+',1fr);'
+    canvas.style.cssText+='width:'+canvasSize+'vh; height:'+canvasSize+'vh; grid-template-columns:repeat('+columnRowNumb+',1fr);grid-template-rows:repeat('+columnRowNumb+',1fr);'
     pixel = document.querySelectorAll('.pixel-paint')
 
     paint()
@@ -77,4 +78,8 @@ function eyeDropper(){
         draw = true;
         paint();
     }
+}
+
+function paintBucket(){
+    
 }
