@@ -1,7 +1,7 @@
-var color = ''
-var eraserColor = "#f4f1de"
+let color = ''
+let eraserColor = "#f4f1de"
 let erase = false
-var draw = true
+let draw = true
 size(3)
 
 function size(btnId){
@@ -62,4 +62,19 @@ function paintBrush(){
     erase = false
     draw = true
     paint()
+}
+
+function eyeDropper(){
+    erase = false
+    draw = false
+
+    for (let i = 0; i<pixel.length; i++){
+        pixel[i].addEventListener('click',getColor, {passive:true, once:true});
+    }
+
+    function getColor(){
+        color = window.getComputedStyle(this).backgroundColor;
+        draw = true;
+        paint();
+    }
 }
