@@ -5,6 +5,16 @@ let eraserColor = "#f4f1de"
 let erase = false
 let draw = true
 
+/* const config = {attributes: true};
+const callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === 'attributes') {
+        console.log(`The ${mutation.attributeName} attribute was modified.`);
+    }
+  }
+};
+const observer = new MutationObserver(callback); */
+
 function size(btnId){
 
     let canvas = document.querySelector('.pixel-canvas')
@@ -15,7 +25,7 @@ function size(btnId){
 
      canvas.innerHTML=''
     for (var i=0; i<totalPixels; i++){
-        canvas.innerHTML+='<div class="pixel-paint"></div>'
+        canvas.innerHTML+='<div id="'+i+'"class="pixel-paint"></div>'
     }
     canvas.style.cssText+='width:'+canvasSize+'vh; height:'+canvasSize+'vh; grid-template-columns:repeat('+columnRowNumb+',1fr);grid-template-rows:repeat('+columnRowNumb+',1fr);'
     pixel = document.querySelectorAll('.pixel-paint')
@@ -81,5 +91,28 @@ function eyeDropper(){
 }
 
 function paintBucket(){
+    
+    const changeColor = new MutationObserver(changes);
+
+    function changes(mutations){
+        for (let mutation of mutations){
+            if(mutation.type === 'attributes'){
+                console.log(mutation.target.id);
+                console.log(mutation.oldValue)
+            }
+        }
+    }
+
+    for (let i = 0; i<pixel.length; i++){
+        changeColor.observe(pixel[i], {attributes:true, attributeOldValue:true});
+        pixel[i].addEventListener('click',multiplePaint);
+    }
+
+    function multiplePaint(){
+        this.style.background = color;
+        
+        let teste = Array.from(pixel).indexOf(this);
+        console.log(teste)
+    }
     
 }
