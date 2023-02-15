@@ -5,16 +5,6 @@ let eraserColor = "#f4f1de"
 let erase = false
 let draw = true
 
-/* const config = {attributes: true};
-const callback = (mutationList, observer) => {
-  for (const mutation of mutationList) {
-    if (mutation.type === 'attributes') {
-        console.log(`The ${mutation.attributeName} attribute was modified.`);
-    }
-  }
-};
-const observer = new MutationObserver(callback); */
-
 function size(btnId){
 
     let canvas = document.querySelector('.pixel-canvas')
@@ -51,6 +41,7 @@ function paint(){
         color = colorPicked.target.value
         erase = false
         draw = true
+        select('brush')
     }
 
     function pixelPaint(){
@@ -87,6 +78,7 @@ function eyeDropper(){
         color = window.getComputedStyle(this).backgroundColor;
         draw = true;
         paint();
+        select('brush')
     }
 }
 
@@ -114,5 +106,28 @@ function paintBucket(){
         let teste = Array.from(pixel).indexOf(this);
         console.log(teste)
     }
-    
+}
+
+function select(toolsId){
+    let tools = document.querySelectorAll('.tools');
+
+    for (let i = 0; i < tools.length; i++){
+        isSelected = tools[i].classList.contains('selected') 
+
+        if (isSelected == true){
+            tools[i].classList.remove('selected')
+        }
+    }
+
+    document.getElementById(toolsId).classList.add('selected')
+
+    if (toolsId == 'brush'){
+        document.querySelector(':root').style.setProperty('--custom-cursor', 'url(Imgs/Mouse-Pixel-Paint-Brush.png),auto');
+    }else if (toolsId == 'eyeDropper'){
+        document.querySelector(':root').style.setProperty('--custom-cursor', 'url(Imgs/Mouse-Pixel-Dropper.png),auto');
+    }else if (toolsId == 'bucket'){
+        document.querySelector(':root').style.setProperty('--custom-cursor', 'url(Imgs/Mouse-Pixel-Paint-Bucket.png),auto');
+    }else if(toolsId == 'eraser'){
+        document.querySelector(':root').style.setProperty('--custom-cursor', 'url(Imgs/Mouse-Pixel-Eraser.png),auto');
+    }
 }
