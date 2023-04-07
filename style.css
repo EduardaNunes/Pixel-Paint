@@ -137,6 +137,8 @@ main{
 }
 
 footer{
+    display: flex;
+    gap: 10px;
     height: 4vh;
     padding: 0 0 1vh 0 ;
     box-sizing: border-box;
@@ -144,6 +146,14 @@ footer{
 
 footer p{
     font-size: 0.7em;
+}
+
+.link-icon img{
+    width: 25px;
+}
+
+.link-icon:hover{
+    transform: scale(1.1);
 }
 
 .selected{

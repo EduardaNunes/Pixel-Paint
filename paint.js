@@ -2,7 +2,7 @@
 
 let columnRowNumb = ''
 let color = ''
-const eraserColor = "#f4f1de"
+let eraserColor = "#f4f1de"
 let erase = false
 let draw = true
 let bucket = false
@@ -37,6 +37,11 @@ function size(btnId){
 // Função responsávei por pintar os pixels de acordo com diferentes fatores / ferramentas
 
 function paint(){
+    console.log('função paint')
+    console.log('eraser = ' + erase)
+    console.log('bucket = ' + bucket)
+    console.log('draw = ' + draw)
+    console.log('---------------------------------')
 
     if(bucket === true){
         
@@ -74,7 +79,13 @@ function paint(){
 
     function pixelPaint(){
 
-        if(draw === true && bucket === false){
+        console.log('função Pixel Paint')
+        console.log('eraser = ' + erase)
+        console.log('bucket = ' + bucket)
+        console.log('draw = ' + draw)
+        console.log('---------------------------------')
+
+        if(draw === true && bucket === false && erase === false){
             this.style.background = color;
         }else if(erase === true){
             this.style.background = eraserColor;
@@ -85,6 +96,12 @@ function paint(){
 // Aqui ativa-se a ferramenta de borracha
 
 function eraser(){
+    console.log('função eraser')
+    console.log('eraser = ' + erase)
+    console.log('bucket = ' + bucket)
+    console.log('draw = ' + draw)
+    console.log('---------------------------------')
+
     draw = false
     bucket = false
     erase = true
@@ -94,14 +111,27 @@ function eraser(){
 // Função para voltar para o pincel depois de selecionar outra ferramenta
 
 function paintBrush(){
+    console.log('função PaintBrush')
+    console.log('eraser = ' + erase)
+    console.log('bucket = ' + bucket)
+    console.log('draw = ' + draw)
+    console.log('---------------------------------')
+
     erase = false
+    bucket = false
     draw = true
-    paint()
+    paintBucket(false);
 }
 
 // Aqui ativa-se e usa-se o eyedropper 1 unica vez e depois volta para o pincel
 
 function eyeDropper(){
+    console.log('função eyeDropper')
+    console.log('eraser = ' + erase)
+    console.log('bucket = ' + bucket)
+    console.log('draw = ' + draw)
+    console.log('---------------------------------')
+
     erase = false
     draw = false
     bucket = false
@@ -121,6 +151,11 @@ function eyeDropper(){
 // Aqui ativa-se o PaintBucket
 
 function paintBucket(a){
+    console.log('função paintBucket')
+    console.log('eraser = ' + erase)
+    console.log('bucket = ' + bucket)
+    console.log('draw = ' + draw)
+    console.log('---------------------------------')
 
     if(a === true){
 
@@ -196,6 +231,11 @@ function paintBucket(a){
         } 
 
         function multiplePaint(){
+            console.log('função MultiplePaint')
+            console.log('eraser = ' + erase)
+            console.log('bucket = ' + bucket)
+            console.log('draw = ' + draw)
+            console.log('---------------------------------')
 
             if (bucket === false){
 
