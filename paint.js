@@ -2,7 +2,7 @@
 
 let columnRowNumb = ''
 let color = ''
-let eraserColor = "#f4f1de"
+const eraserColor = "#f4f1de"
 let erase = false
 let draw = true
 let bucket = false
@@ -20,8 +20,8 @@ function size(btnId){
     columnRowNumb = btnId;
     let canvasSize = 11 * btnId -1;
     let totalPixels = btnId * btnId;
-
      canvas.innerHTML=''
+
     for (var i=0; i<totalPixels; i++){
         let pixelDiv = document.createElement('div');
         pixelDiv.classList.add('pixel-paint');
@@ -54,7 +54,7 @@ function paint(){
     let colorPicker = document.querySelectorAll('.color')
 
     for(var i = 0; i<pixel.length; i++){
-        pixel[i].removeEventListener('click', paintBrush)
+        pixel[i].removeEventListener('click', pixelPaint)
         pixel[i].addEventListener('click',pixelPaint)
     }
     
