@@ -13,6 +13,16 @@ size(5)
 
 // Função que cria o canvas de acordo com o tamanho selecionado
 
+/* const config = {attributes: true};
+const callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === 'attributes') {
+        console.log(`The ${mutation.attributeName} attribute was modified.`);
+    }
+  }
+};
+const observer = new MutationObserver(callback); */
+
 function size(btnId){
 
     let canvas = document.querySelector('.pixel-canvas')
@@ -144,7 +154,6 @@ function eyeDropper(){
         color = window.getComputedStyle(this).backgroundColor;
         draw = true;
         paint();
-        select('brush')
     }
 }
 

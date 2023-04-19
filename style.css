@@ -15,7 +15,6 @@
 :root{
     --bg-color:#1b1b1b;
     --text-color:#f4f1de;
-    --custom-cursor:url(Imgs/Mouse-Pixel-Paint-Brush.png),auto;
 }
 
 .flex-column{
@@ -34,7 +33,6 @@
 
 body{
     background-color: var(--bg-color);
-    cursor:var(--custom-cursor);
 }
 
 header{
@@ -74,7 +72,6 @@ header{
 
 .color, .tools{
     background-color: transparent;
-    cursor:var(--custom-cursor);
     width: 10vh;
     height: 10vh;
     max-width: 20vw;
@@ -82,7 +79,7 @@ header{
 }
 
 .color:hover{
-    cursor:var(--custom-cursor);
+    cursor: pointer;
     filter: brightness(0.8)
 }
 
@@ -92,7 +89,8 @@ header{
 
 .tools img{
     width: 50%;
-    height: 50%; 
+    height: 50%;
+   
 }
 
 .btn-size{
@@ -105,8 +103,8 @@ header{
     box-sizing: border-box;
 }
 
-.btn-size:hover, .tools:hover{
-    cursor:var(--custom-cursor);
+.btn-size:hover, .available:hover{
+    cursor: pointer;
     filter: brightness(1.4);
     background-color: rgba(255, 255, 255, 0.473);
 }
@@ -132,7 +130,7 @@ main{
 }
 
 .pixel-paint:hover{
-    cursor:var(--custom-cursor);
+    cursor: pointer;
     filter: brightness(0.8)
 }
 
@@ -146,6 +144,7 @@ footer{
 
 footer p{
     font-size: 0.7em;
+
 }
 
 .link-icon img{
